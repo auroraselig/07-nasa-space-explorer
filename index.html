@@ -3,26 +3,65 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>NASA Space Explorer</title>
+  <title>NASA Space Explorer - Astronomy Picture of the Day</title>
+  <meta name="description" content="Explore the universe through NASA's daily astronomy pictures. Discover galaxies, nebulae, planets, and cosmic phenomena." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link href="style.css" rel="stylesheet" type="text/css" />
+  <link rel="icon" href="img/nasa-worm-logo.png" type="image/png" />
 </head>
 <body>
   <div class="container">
     <header class="site-header">
       <img src="img/nasa-worm-logo.png" alt="NASA Logo" class="logo" />
-      <h1>Space Explorer</h1>
+      <div class="header-content">
+        <h1>NASA Space Explorer</h1>
+        <p class="mission-tagline">Astronomy Picture of the Day Archive</p>
+      </div>
     </header>
 
+    <div class="mission-brief">
+      <p>🚀 <strong>Mission Objective:</strong> Explore NASA's daily collection of astronomical images and discover the wonders of our universe.</p>
+    </div>
+
     <div class="filters">
-      <input type="date" id="startDate" />
-      <input type="date" id="endDate" />
-      <button>Get Space Images</button>
+      <div class="filter-header">
+        <h3>📅 Select Mission Timeline</h3>
+      </div>
+      <div class="date-inputs">
+        <div class="input-group">
+          <label for="startDate">Launch Date</label>
+          <input type="date" id="startDate" />
+        </div>
+        <div class="input-group">
+          <label for="endDate">Return Date</label>
+          <input type="date" id="endDate" />
+        </div>
+      </div>
+      <button class="mission-button">
+        <span class="button-icon">🚀</span>
+        Launch Mission: Get Space Images
+      </button>
     </div>
 
     <div id="gallery" class="gallery">
       <div class="placeholder">
         <div class="placeholder-icon">🌌</div>
-        <p>Ready for launch! Select your mission dates and click "Get Space Images" to explore the universe through NASA's eyes.</p>
+        <h3>Mission Control Ready</h3>
+        <p>Ready for launch! Select your mission dates and click "Launch Mission" to explore the universe through NASA's eyes.</p>
+        <div class="mission-stats">
+          <div class="stat">
+            <span class="stat-number">30+</span>
+            <span class="stat-label">Years of Images</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">10,000+</span>
+            <span class="stat-label">Space Photos</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">∞</span>
+            <span class="stat-label">Wonder</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -30,11 +69,18 @@
   <!-- Modal for displaying larger image details -->
   <div id="imageModal" class="modal">
     <div class="modal-content">
-      <button class="modal-close" id="closeModal">&times;</button>
+      <button class="modal-close" id="closeModal" aria-label="Close modal">&times;</button>
+      <div class="modal-header">
+        <img src="img/nasa-worm-logo.png" alt="NASA Logo" class="modal-logo" />
+        <span class="modal-badge">NASA APOD</span>
+      </div>
       <img id="modalImage" class="modal-image" src="" alt="">
       <h2 id="modalTitle" class="modal-title"></h2>
       <p id="modalDate" class="modal-date"></p>
-      <p id="modalExplanation" class="modal-explanation"></p>
+      <div class="modal-explanation-container">
+        <h4 class="explanation-header">🔬 Mission Brief</h4>
+        <p id="modalExplanation" class="modal-explanation"></p>
+      </div>
     </div>
   </div>
 

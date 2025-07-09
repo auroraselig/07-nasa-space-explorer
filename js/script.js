@@ -14,7 +14,27 @@ setupDateInputs(startInput, endInput);
 async function fetchAPOD(startDate, endDate) {
   // Show loading message with NASA branding
   const gallery = document.getElementById('gallery');
-  gallery.innerHTML = '<div class="placeholder"><div class="placeholder-icon">�</div><p>Mission Control: Loading spectacular space images from NASA...</p></div>';
+  gallery.innerHTML = `
+    <div class="placeholder">
+      <div class="placeholder-icon">🚀</div>
+      <h3>Mission in Progress</h3>
+      <p>Houston, we are go for launch! Retrieving spectacular space imagery from NASA archives...</p>
+      <div class="mission-stats">
+        <div class="stat">
+          <span class="stat-number">⏳</span>
+          <span class="stat-label">Loading</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">📡</span>
+          <span class="stat-label">Transmitting</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">🛰️</span>
+          <span class="stat-label">Processing</span>
+        </div>
+      </div>
+    </div>
+  `;
   
   // NASA APOD API URL with your API key and date range
   const apiKey = 'ANcbWvu2taadEZB5BF7i9XB6ZzveL5wJtJgA218v'; // Replace with your NASA API key
@@ -30,7 +50,27 @@ async function fetchAPOD(startDate, endDate) {
   } catch (error) {
     console.error('Error fetching APOD data:', error);
     // Show error message to user with NASA theme
-    gallery.innerHTML = '<div class="placeholder"><div class="placeholder-icon">🛰️</div><p>Houston, we have a problem! Unable to retrieve space images. Please check your connection and try again.</p></div>';
+    gallery.innerHTML = `
+      <div class="placeholder">
+        <div class="placeholder-icon">🛰️</div>
+        <h3>Mission Control Alert</h3>
+        <p>Houston, we have a problem! Communication with NASA servers interrupted. Please check your connection and retry mission.</p>
+        <div class="mission-stats">
+          <div class="stat">
+            <span class="stat-number">⚠️</span>
+            <span class="stat-label">Error</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">🔄</span>
+            <span class="stat-label">Retry</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">📞</span>
+            <span class="stat-label">Support</span>
+          </div>
+        </div>
+      </div>
+    `;
   }
 }
 
@@ -102,8 +142,8 @@ function closeModal() {
   document.body.style.overflow = 'auto';
 }
 
-// Find the "Get Space Images" button
-const getImagesButton = document.querySelector('button');
+// Find the "Launch Mission" button
+const getImagesButton = document.querySelector('.mission-button');
 
 // Add event listener to the button
 getImagesButton.addEventListener('click', () => {
